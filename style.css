@@ -10,9 +10,9 @@ body {
     box-sizing: border-box;
 }
 
-h1 { /* Titolo principale, se usato */
+h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 7vw, 48px); /* Dimensione font responsiva */
+    font-size: clamp(30px, 7vw, 48px);
     font-weight: bold;
     color: #08c738;
     text-align: center;
@@ -21,10 +21,10 @@ h1 { /* Titolo principale, se usato */
     margin-bottom: 20px;
 }
 
-p { /* Stile P originale da style.css */
-    font-size: 20px; /* Mantenuto originale, se non serve per il popup, si può specificare meglio */
+p {
+    font-size: 20px;
     font-weight: lighter;
-    color: #fefeff; /* Testo bianco, attenzione se lo sfondo è chiaro */
+    color: #fefeff;
 }
 
 

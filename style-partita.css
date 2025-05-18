@@ -1,46 +1,25 @@
 body {
-    background-color: #f9f8f5; /* Colore di fallback */
+    background-color: #f9f8f5;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    align-items: center; /* Centra il contenuto principale orizzontalmente */
-    padding: 0 10px; /* Padding laterale per evitare che il contenuto tocchi i bordi */
+    align-items: center;
+    padding: 0 10px;
     box-sizing: border-box;
 }
 
 img {
     width: 60%;
     display: block;
-    margin: auto; /* Centra l'immagine */
-}
-
-.game-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    position: relative; /* Per il posizionamento dei .bottonitema se necessario */
-}
-
-.game-header .logo-link img {
-    width: clamp(80px, 15vw, 120px); /* Logo responsivo */
-    height: auto;
+    margin: auto;
 }
 
 .divider {
-    width: clamp(50%, 1px, 90%); /* Larghezza responsiva con un massimo */
+    width: clamp(50%, 1px, 90%);
     max-width: 400px;
-    border-top: 4px solid #000000; /* Spessore ridotto */
-    margin: 15px auto; /* Centrato e con margine */
-}
-
-.bebas-neue-regular {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    border-top: 4px solid #000000;
+    margin: 15px auto;
 }
 
 .lilita-one-regular {
@@ -51,108 +30,70 @@ img {
 
 .bottonitema {
     display: flex;
-    gap: 10px; /* Spazio tra i bottoni tema */
-    /* Rimosso position: absolute per un flusso più naturale */
-    /* Se si desidera un posizionamento assoluto, testarlo accuratamente su mobile */
-    /* position: absolute; */
-    /* top: 20px; */
-    /* right: 20px; */
+    gap: 10px;
 }
 
 .bottonitema button {
     background-color: #444444;
     color: white;
-    padding: 8px; /* Padding ridotto per bottoni più piccoli */
+    padding: 8px;
     border: none;
-    border-radius: 50%; /* Per renderli circolari */
+    border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex; /* Per centrare l'immagine all'interno */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .bottonitema button img {
-    width: clamp(20px, 5vw, 25px); /* Icone responsive */
+    width: clamp(20px, 5vw, 25px);
     height: clamp(20px, 5vw, 25px);
 }
 
-.game-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    flex-grow: 1; /* Permette a quest'area di crescere e spingere il footer in basso */
-    justify-content: center; /* Centra verticalmente la griglia e la tastiera */
-}
-
-/* Contenitore della griglia */
 .grid-container {
     display: grid;
-    gap: clamp(5px, 1.5vw, 10px); /* Gap responsivo */
+    gap: clamp(5px, 1.5vw, 10px);
     justify-content: center;
     align-items: center;
-    margin-top: 20px; /* Margine aumentato per separazione dalla linea */
-    margin-bottom: 20px; /* Margine per separare dalla tastiera */
-    width: fit-content; /* Adatta la larghezza al contenuto */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: fit-content;
     max-width: 100%;
 }
 
 .facile {
-    /* 8 righe, 4 colonne */
     grid-template-columns: repeat(4, clamp(40px, 10vw, 60px));
     grid-template-rows: repeat(8, clamp(40px, 10vw, 60px));
 }
 
 .media {
-    /* 6 righe, 5 colonne */
     grid-template-columns: repeat(5, clamp(40px, 9vw, 55px));
     grid-template-rows: repeat(6, clamp(40px, 9vw, 55px));
 }
 
 .difficile {
-    /* 4 righe, 6 colonne - Potrebbe essere 5 righe */
     grid-template-columns: repeat(6, clamp(35px, 8vw, 50px));
     grid-template-rows: repeat(4, clamp(35px, 8vw, 50px));
-    /* Se possibilita è 4, dovrebbero essere 4 righe */
 }
 
-
-/* Stile per gli input della griglia */
 .grid-item {
     width: 100%;
     height: 100%;
     background-color: rgb(165, 163, 163);
     color: white;
-    border: 1px solid #555; /* Bordo leggero per separazione */
+    border: 1px solid #555;
     text-align: center;
-    font-size: clamp(18px, 5vw, 30px); /* Font responsivo */
+    font-size: clamp(18px, 5vw, 30px);
     text-transform: uppercase;
     outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px; /* Raggio bordi ridotto */
+    border-radius: 5px;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Animazione per feedback */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-/* Classi per lo stato delle lettere nella griglia */
-.grid-item.esatta {
-    background-color: #228B22 !important; /* Verde - !important per sovrascrivere lo stile inline se ancora presente */
-    border-color: #1a681a !important;
-    transform: scale(1.05); /* Effetto leggero al reveal */
-}
-.grid-item.presente {
-    background-color: #FFD700 !important; /* Giallo */
-    border-color: #cca300 !important;
-    transform: scale(1.05);
-}
-.grid-item.assente {
-    background-color: #404040 !important; /* Grigio scuro */
-    border-color: #303030 !important;
-}
-
 
 .keyboard-container {
     font-family: "Lilita One", sans-serif;
@@ -161,10 +102,10 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: clamp(20px, 5vh, 40px); /* Margine responsivo */
-    gap: clamp(5px, 1.5vw, 8px); /* Gap responsivo */
+    margin-top: clamp(20px, 5vh, 40px);
+    gap: clamp(5px, 1.5vw, 8px);
     width: 100%;
-    max-width: 600px; /* Limite per la larghezza della tastiera */
+    max-width: 600px;
     padding: 0 5px;
     box-sizing: border-box;
     margin-bottom: 20px;
@@ -173,7 +114,7 @@ img {
 .keyboard-row {
     display: flex;
     justify-content: center;
-    gap: clamp(3px, 1vw, 5px); /* Gap responsivo tra i tasti */
+    gap: clamp(3px, 1vw, 5px);
     width: 100%;
 }
 
@@ -183,21 +124,21 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: clamp(14px, 3.5vw, 20px); /* Font responsivo per tasti */
+    font-size: clamp(14px, 3.5vw, 20px);
     border-radius: 5px;
     border: 2px solid #333333;
-    height: clamp(40px, 10vw, 55px); /* Altezza responsiva */
-    max-height: 60px; /* Altezza massima */
+    height: clamp(40px, 10vw, 55px);
+    max-height: 60px;
     cursor: pointer;
     font-family: "Lilita One", sans-serif;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    flex-grow: 1; /* Permette ai tasti di espandersi */
-    flex-basis: 0; /* Base per la crescita flessibile */
-    min-width: 30px; /* Larghezza minima per evitare che diventino troppo piccoli */
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 30px;
 }
 
 .key2 {
-    flex-grow: 1.5; /* Tasti Enter/Backspace più larghi */
+    flex-grow: 1.5;
 }
 
 .key:hover, .key2:hover {
@@ -208,46 +149,21 @@ img {
     background-color: #666666;
 }
 
-/* Classi per lo stato dei tasti della tastiera */
-.key.esatta, .key2.esatta {
-    background-color: #228B22 !important;
-    border-color: #1a681a !important;
-}
-.key.presente, .key2.presente {
-    background-color: #FFD700 !important;
-    border-color: #cca300 !important;
-}
-.key.assente, .key2.assente {
-    background-color: #777777 !important; /* Grigio più chiaro per tasti usati e non presenti */
-    border-color: #606060 !important;
-}
-
-
-/* Spaziatori per dare l'effetto piramidale (opzionale, flexbox può gestire meglio) */
-.spacer-half {
-    flex-grow: 0.5; /* Occupa metà dello spazio di un tasto normale */
-}
-
-
-footer {
-    width: 100%;
+.error-popup {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
     text-align: center;
-    margin-top: auto; /* Spinge il footer in basso se il contenuto è corto */
-    padding: 10px 0; /* Padding ridotto */
-    background-color: rgb(79, 117, 221);
-    color: white;
-    font-size: clamp(14px, 3vw, 18px); /* Font responsivo */
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Lilita One", sans-serif;
+    font-size: clamp(14px, 3vw, 16px);
+    margin-top: 10px;
+    width: fit-content;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
-/*----------------------------------------------------------------------------------------*/
-/* Temi */
-.theme-black-white {
-    background-color: #000;
-    color: #fff;
-}
 
 .theme-light {
     background-color: #fff;
@@ -259,40 +175,18 @@ footer {
     color: #fff;
 }
 
-.theme-dark .popup-messaggio {
-    background-color: #333; /* Esempio per tema scuro */
-    color: #fff;
-}
-
-.theme-dark .popup-messaggio h2,
-.theme-dark .popup-messaggio p {
-    color: #fff;
-}
-
-.theme-light .popup-messaggio {
-    background-color: #fff; /* Esempio per tema chiaro */
-    color: #000;
-}
-
-.theme-light .popup-messaggio h2,
-.theme-light .popup-messaggio p {
-    color: #000;
-}
-
-
-/* Stili per le finestre Popup */
 .popup-contenitore {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Sfondo leggermente più scuro */
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 15px; /* Padding per evitare che il popup tocchi i bordi su schermi piccoli */
+    padding: 15px;
     box-sizing: border-box;
 }
 
@@ -301,33 +195,66 @@ footer {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 90%; /* Larghezza relativa per responsività */
-    max-width: 400px; /* Larghezza massima */
+    width: 90%;
+    max-width: 400px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.popup-messaggio h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: clamp(20px, 5vw, 24px); /* Font responsivo */
+.theme-light .popup-messaggio {
+    background-color: #fff;
+    color: #000;
 }
 
-.popup-messaggio p {
-    margin-bottom: 20px;
-    font-size: clamp(16px, 4vw, 18px); /* Font responsivo */
+.theme-light .popup-messaggio h2,
+.theme-light .popup-messaggio p {
+    color: #000;
+}
+
+.theme-dark .popup-messaggio {
+    background-color: #333;
+    color: #fff;
+}
+
+.theme-dark .popup-messaggio h2,
+.theme-dark .popup-messaggio p {
+    color: #fff;
 }
 
 .popup-messaggio button {
-    color: white;
     border: none;
-    padding: 12px 22px; /* Padding aumentato per migliore cliccabilità */
+    padding: 12px 22px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: clamp(14px, 3.8vw, 16px); /* Font responsivo */
-    margin: 8px 5px;
+    display: block;
+    font-size: clamp(14px, 3.8vw, 16px);
+    margin: 8px auto;
     cursor: pointer;
-    border-radius: 8px; /* Bordi più arrotondati */
+    border-radius: 8px;
     font-family: "Lilita One", sans-serif;
     transition: background-color 0.2s ease;
+    width: auto;
+    min-width: 120px;
 }
+
+.theme-light .popup-messaggio button {
+    background-color: #3498db;
+    color: white;
+}
+
+.theme-light .popup-messaggio button:hover {
+    background-color: #2980b9;
+}
+
+.theme-dark .popup-messaggio button {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+.theme-dark .popup-messaggio button:hover {
+    background-color: #666;
+    }

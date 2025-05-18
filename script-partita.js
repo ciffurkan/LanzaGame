@@ -106,8 +106,8 @@ function inputLetter() {
                 } else {
                     console.log("Nessuna lettera da rimuovere!");
                 }
-            } else if (lettera == "enter" && inputCorrente.length == lettere && parole.includes(inputParola)) {
-
+            } else if (lettera == "enter" && inputCorrente.length == lettere) {
+		if (parole.includes(inputParola)) {
                 let arrayParola = parola.split("");
                 console.log("Parola inserita:", inputParola);
                 console.log("Parola segreta:", parola);
@@ -185,15 +185,23 @@ function inputLetter() {
                             }
                         }
                     }
-
+                
                     if (tentativo == possibilita && !win) {
                         mostraPopupSconfitta();
                     }
                 }
-
-
                 inputCorrente = [];
+            } else {
+                    const errorPopup = document.getElementById('error-message');
+                    errorPopup.style.display = 'block';
+                    setTimeout(() => {
+                        errorPopup.style.display = 'none';
+                    }, 1000);
+                }
+
+                
             }
+            
         } else {
             console.log("finito");
         }
